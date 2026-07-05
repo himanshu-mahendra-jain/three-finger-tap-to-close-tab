@@ -1,8 +1,17 @@
 {
   "manifest_version": 3,
   "name": "Three Finger Tap to Close Tab",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Close the current tab with a three-finger tap or middle click outside links and editable fields.",
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Three Finger Tap to Close Tab",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
   "background": {
     "service_worker": "src/background.js"
   },
@@ -17,11 +26,5 @@
       "all_frames": false,
       "run_at": "document_start"
     }
-  ],
-  "action": {
-    "default_title": "Three Finger Tap to Close Tab",
-    "default_icon": {
-      "128": "icons/icon128.png"
-    }
-  }
+  ]
 }
