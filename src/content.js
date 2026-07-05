@@ -1,32 +1,35 @@
-const INTERACTIVE_SELECTOR =
-    'a[href], area[href], input, textarea, select, ' +
-    '[contenteditable]:not([contenteditable="false"]), [role="textbox"]';
+const INTERACTIVE_SELECTOR = [
+    'a[href]',
+    'area[href]',
+    'button',
+    'input',
+    'textarea',
+    'select',
+    'summary',
+    '[contenteditable]:not([contenteditable="false"])',
+    '[role="button"]',
+    '[role="link"]',
+    '[role="textbox"]'
+].join(', ');
 
 function isInteractive(element) {
     return element instanceof Element &&
-        element.closest(INTERACTIVE_SELECTOR);
+        element.closest(INTERACTIVE_SELECTOR) !== null;
 }
 
 document.addEventListener(
-    "auxclick",
+    'auxclick',
     (event) => {
         if (event.button !== 1) return;
 
-        const path = event.composedPath();
-
-        // Preserve normal behavior on links and editable fields
-        if (
-            path.some(isInteractive) ||
-            isInteractive(document.activeElement)
-        ) {
-            return;
-        }
+        // Preserve normal behavior on links, controls, and editable fields.
+        if (event.composedPath().some(isInteractive)) return;
 
         event.preventDefault();
-        event.stopPropagation();
+        event.stopImmediatePropagation();
 
         chrome.runtime
-            .sendMessage({ type: "CLOSE_TAB" })
+            .sendMessage({ type: 'CLOSE_TAB' })
             .catch(() => { });
     },
     true

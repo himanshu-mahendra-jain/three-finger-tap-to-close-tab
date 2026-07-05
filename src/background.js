@@ -1,15 +1,22 @@
+const closingTabs = new Set();
+
+function closeTab(tabId) {
+    if (!Number.isInteger(tabId) || closingTabs.has(tabId)) return;
+
+    closingTabs.add(tabId);
+
+    chrome.tabs
+        .remove(tabId)
+        .catch(() => { })
+        .finally(() => closingTabs.delete(tabId));
+}
+
 chrome.runtime.onMessage.addListener((message, sender) => {
-    if (message?.type !== "CLOSE_TAB") return;
+    if (message?.type !== 'CLOSE_TAB') return;
 
-    const tabId = sender.tab?.id;
-
-    if (tabId !== undefined) {
-        chrome.tabs.remove(tabId).catch(() => { });
-    }
+    closeTab(sender.tab?.id);
 });
 
 chrome.action.onClicked.addListener((tab) => {
-    if (tab.id !== undefined) {
-        chrome.tabs.remove(tab.id).catch(() => { });
-    }
+    closeTab(tab.id);
 });
