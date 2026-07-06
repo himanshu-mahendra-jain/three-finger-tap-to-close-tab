@@ -7,6 +7,10 @@ The extension is designed to be simple, fast, private, and predictable.
 It has no popup, no settings page, no analytics, no tracking, and no
 unnecessary browser permissions.
 
+<a href="https://chromewebstore.google.com/detail/change-video-playback-spe/bennolgojnfnlnckehpkjljdlebchjmb" rel="noopener noreferrer">
+  <img src="https://developer.chrome.com/static/docs/webstore/branding/image/UV4C4ybeBTsZt43U4xis.png" alt="Available in the Chrome Web Store">
+</a>
+
 ## Supported Browsers
 
 The extension supports:
