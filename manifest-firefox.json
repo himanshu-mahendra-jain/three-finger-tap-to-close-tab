@@ -5,7 +5,7 @@
     "description": "Close the current tab with a three-finger tap or middle click outside links and editable fields.",
     "browser_specific_settings": {
         "gecko": {
-            "id": "three-finger-tap-to-close-tab@himanshu-mahendra-jain",
+            "id": "three-finger-tap-close-tab@himanshu-mahendra-jain",
             "data_collection_permissions": {
                 "required": [
                     "none"
