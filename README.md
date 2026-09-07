@@ -25,6 +25,7 @@ The JavaScript source code is shared across all supported browsers.
 -   Close the current tab with a three-finger tap
 -   Close the current tab with a middle click
 -   Close the current tab by clicking the extension toolbar icon
+-   Close the current tab with a keyboard shortcut (`Alt+Shift+W`)
 -   Preserve normal middle-click behavior on links and controls
 -   Avoid closing tabs while interacting with interactive controls
 -   Support event detection through Shadow DOM event paths
@@ -51,12 +52,17 @@ close the current tab.
 Middle-clicking a link or interactive control preserves the browser's
 normal behavior instead of closing the tab.
 
+### Keyboard Shortcut
+
+Press `Alt+Shift+W` (customizable in your browser's extension shortcut
+settings) to close the current tab.
+
 ### Toolbar
 
 Click the extension icon to close the current tab.
 
 The toolbar action performs the same tab-closing operation as the
-three-finger tap and middle-click actions.
+three-finger tap, middle-click, and keyboard shortcut actions.
 
 ## Project Structure
 
@@ -147,19 +153,22 @@ within supported interactive elements.
 
 The detection includes:
 
--   Links
--   Buttons
--   Input fields
--   Text areas
--   Select elements
--   Summary disclosure controls
--   Editable content regions
--   Elements with a button role
--   Elements with a link role
--   Elements with a textbox role
+-   Links and map areas (`a[href]`, `area[href]`)
+-   Form controls (`button`, `input`, `textarea`, `select`)
+-   Disclosure controls (`summary`, `details`)
+-   Dialogs and modals (`dialog`, `[role="dialog"]`, `[role="alertdialog"]`)
+-   Interactive viewports and media (`canvas`, `audio[controls]`, `video[controls]`)
+-   Editable content regions (`[contenteditable]`)
+-   Keyboard-focusable custom controls (`[tabindex]:not([tabindex="-1"])`)
+-   ARIA widget roles (`button`, `link`, `textbox`, `searchbox`, `checkbox`, `radio`, `switch`, `slider`, `spinbutton`, `combobox`, `menuitem`, `menuitemcheckbox`, `menuitemradio`, `tab`, `treeitem`, `option`)
+-   Articles and feed items (`article[role="article"]`)
 
-This preserves expected browser and page behavior while using controls or
-entering content.
+The extension also includes a proximity safety buffer around interactive
+elements to prevent accidental tab closures when a tap lands slightly outside
+a target.
+
+This preserves expected browser and page behavior while using controls,
+interacting with feed items, or entering content.
 
 ## Shadow DOM Handling
 
