@@ -7,6 +7,18 @@ The extension is designed to be simple, fast, private, and predictable.
 It has no popup, no settings page, no analytics, no tracking, and no
 unnecessary browser permissions.
 
+<a href="https://chromewebstore.google.com/detail/three-finger-tap-to-close/gghapcpoaemlejgeamgmelhnfdllamcm" rel="noopener noreferrer">
+  <img src="https://developer.chrome.com/static/docs/webstore/branding/image/UV4C4ybeBTsZt43U4xis.png" alt="Available in the Chrome Web Store">
+</a>
+
+<a href="https://microsoftedge.microsoft.com/addons/detail/three-finger-tap-to-close/ghdidknoepfeijgnjfkgebohjecfhnob" rel="noopener noreferrer">
+  <img src="https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/add-ons-badge-images/microsoft-edge-add-ons-badge.png" alt="Get it from Microsoft Edge">
+</a>
+
+<a href="https://addons.mozilla.org/en-US/firefox/addon/three-finger-tap-close-tab/" rel="noopener noreferrer">
+  <img src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png" alt="Get the add-on">
+</a>
+
 ## Supported Browsers
 
 The extension supports:
